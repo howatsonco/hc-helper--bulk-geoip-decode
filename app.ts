@@ -16,7 +16,10 @@ const run = async () => {
 
   const inputFile = fs.readFileSync(inputFilename, 'utf8')
   const results = await parse<string[]>(inputFile, {header: false})
-  const output = results.data.map(d => d[0] ? {ip: d[0], ...geoip.lookup(d[0] + '')} : null)
+  const output = results.data
+    .filter(d => d && d.length > 0)
+    .map(d => d[0] ? {ip: d[0], ...geoip.lookup(d[0] + '')} : null)
+    .filter(o => o)
 
   if (isJson) {
     console.log(JSON.stringify(output))

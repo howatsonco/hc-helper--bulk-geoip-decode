@@ -215,4 +215,4 @@ dist
 
 *.txt
 *.csv
-output.json
+output*.json
