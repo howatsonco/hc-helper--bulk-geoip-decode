@@ -17,7 +17,10 @@ Prepare the list of IP addresses in a text file. For example, create a file name
 ```
 
 # Bulk geocode to CSV
+```
 npm start --silent -- input.txt > output.csv
+```
 # Bulk geocode to JSON
+```
 npm start --silent -- input.txt --json > output.csv
 ```
